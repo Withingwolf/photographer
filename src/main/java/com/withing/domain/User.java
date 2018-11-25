@@ -1,14 +1,12 @@
 package com.withing.domain;
 
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.*;
 
 @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
 public class User {
     private int id;
     private String name;
     private String psw;
-//    Date createTime;
-//    Date expireTime;
 
 
     public int getId() {

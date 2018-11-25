@@ -1,21 +1,11 @@
-import com.withing.config.HibernateConfig;
-import com.withing.domain.User;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import com.withing.config.*;
+import com.withing.domain.*;
+import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.tool.hbm2ddl.SchemaExport;
-import org.hibernate.tool.schema.TargetType;
-import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-
-import java.util.EnumSet;
+import org.junit.*;
+import org.springframework.context.*;
+import org.springframework.context.annotation.*;
+import org.springframework.orm.hibernate5.*;
 
 
 public class ApplicationContextTest {
@@ -23,11 +13,10 @@ public class ApplicationContextTest {
     public static void main(String[] args) {
         Configuration configuration = new Configuration().configure();
         SessionFactory factory = configuration.buildSessionFactory();
-
-        ServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
-        Metadata metadata = new MetadataSources(registry).buildMetadata();
-        SchemaExport export = new SchemaExport();
-        export.create(EnumSet.of(TargetType.DATABASE), metadata);
+//        ServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+//        Metadata metadata = new MetadataSources(registry).buildMetadata();
+//        SchemaExport export = new SchemaExport();
+//        export.create(EnumSet.of(TargetType.DATABASE), metadata);
 
 //        StandardServiceRegistry sr = new StandardServiceRegistryBuilder().configure().build();
 //        SessionFactory factory = new MetadataSources(sr).buildMetadata().buildSessionFactory();
