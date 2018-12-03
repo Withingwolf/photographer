@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
     <class name="com.withing.photographer.domain.User" table="user">
-        <id name="id">
+        <id name="id" column="user_id">
             <generator class="native"/>
         </id>
         <property name="email" column="user_email"/>
@@ -13,6 +13,10 @@
         <property name="password" column="user_password"/>
         <property name="phoneNumber" column="user_phonenumber"/>
         <property name="createTime" column="create_time"/>
-
+        <property name="useType" type="com.withing.photographer.converter.UserTypeEnum">
+            <column name="user_type">
+                <comment>用户类型 0 游客，1 普通用户, 2.管理员 3.超级用户</comment>
+            </column>
+        </property>
     </class>
 </hibernate-mapping>

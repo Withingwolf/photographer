@@ -16,6 +16,8 @@ public class User {
 
     private Timestamp createTime;
 
+    private UserType useType;
+
     public int getId() {
         return id;
     }
@@ -64,22 +66,11 @@ public class User {
         this.createTime = createTime;
     }
 
-    public enum userType {
-        client(1, "普通用户"),
-        admin(2, "管理员"),
-        root(3, "超级用户");
-
-        private int privilige;
-
-        private String decription;
-
-        userType(){}
-
-        userType(int privilige, String decription) {
-            this.privilige = privilige;
-            this.decription = decription;
-        }
+    public UserType getUseType() {
+        return useType;
     }
 
-
+    public void setUseType(UserType useType) {
+        this.useType = useType;
+    }
 }
