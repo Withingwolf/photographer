@@ -4,13 +4,15 @@
 
 
 <hibernate-mapping>
-    <class name="com.withing.domain.User">
+    <class name="com.withing.photographer.domain.User" table="user">
         <id name="id">
             <generator class="native"/>
         </id>
-        <property name="name"/>
-        <property name="psw"/>
-        <!--<property name="createTime"/>-->
-        <!--<property name="expireTime"/>-->
+        <property name="email" column="user_email"/>
+        <property name="name" column="user_name"/>
+        <property name="password" column="user_password"/>
+        <property name="phoneNumber" column="user_phonenumber"/>
+        <property name="createTime" column="create_time"/>
+
     </class>
 </hibernate-mapping>
