@@ -1,6 +1,7 @@
 import com.withing.photographer.domain.*;
 import org.hibernate.*;
 import org.hibernate.cfg.*;
+import org.junit.*;
 
 import java.io.*;
 import java.sql.*;
@@ -8,11 +9,36 @@ import java.sql.*;
 
 public class ApplicationContextTest {
 
-    public static void main(String[] args) {
-        Configuration configuration = new Configuration().configure();
-        SessionFactory factory = configuration.buildSessionFactory();
-        Session session = null;
-        Transaction transcation = null;
+    Configuration configuration = new Configuration().configure();
+    SessionFactory factory = configuration.buildSessionFactory();
+    Session session = null;
+    Transaction transcation = null;
+
+    @Test
+    public void PictureTest(){
+
+        Picture picture = new Picture();
+        picture.setBelongsId(1000005);
+        picture.setPicturePath("123");
+        picture.setCreateTime(new Date(System.currentTimeMillis()));
+        try {
+            session = factory.openSession();
+            transcation = session.beginTransaction();
+            Serializable object = session.save(picture);
+            //提交事务
+            transcation.commit();
+        } catch (Exception e) {
+            transcation.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+            factory.close();
+        }
+    }
+
+    @Test
+    public void UserTest() {
+
         User user = new User();
         user.setName("withing");
         user.setPassword("asd6662580");

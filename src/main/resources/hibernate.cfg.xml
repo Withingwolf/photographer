@@ -26,5 +26,6 @@
 
         <property name="hibernate.current_session_context_class">thread</property>
         <mapping resource="hbm/User.hbm.xml"/>
+        <mapping resource="hbm/Picture.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
